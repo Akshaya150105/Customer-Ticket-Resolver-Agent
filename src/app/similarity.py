@@ -1,4 +1,6 @@
-# src/app/similarity.py
+'''
+One of the task is to find the similar tickets based on the issue description.I have used faiss index for similarity search
+'''
 import pandas as pd
 from sentence_transformers import SentenceTransformer
 import faiss
@@ -6,14 +8,12 @@ import numpy as np
 from sqlalchemy import create_engine, text
 import os
 
-# Database URL
+
 DATABASE_URL = "sqlite:///C:/Users/kalya/OneDrive/Desktop/CRAYON DATA/src/app/ticket_data.db"
 engine = create_engine(DATABASE_URL, connect_args={"check_same_thread": False})
 
-# Load model
 model = SentenceTransformer('all-MiniLM-L6-v2')
 
-# FAISS index path
 index_path = "C:\\Users\\kalya\\OneDrive\\Desktop\\CRAYON DATA\\src\\Data\\tickets_index.faiss"
 index = None
 df = None

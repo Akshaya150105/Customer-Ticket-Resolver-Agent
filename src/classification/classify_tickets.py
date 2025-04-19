@@ -1,3 +1,6 @@
+'''
+Task was to classify the issue description into one of the categories,I have used BERT embeddings and Logistic Regression.
+'''
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report
@@ -10,7 +13,6 @@ import numpy as np
 import pickle
 import os
 
-# Preprocessing function
 def preprocess(text):
     text = text.lower()
     text = re.sub(r'[^\w\s]', '', text)
@@ -20,7 +22,7 @@ def preprocess(text):
 
 nlp = spacy.load("en_core_web_sm")
 
-# 1. Load data
+# 1. Load dataset
 df = pd.read_csv("C:\\Users\\kalya\\OneDrive\\Desktop\\Crayon Data\\Data\\Data.csv")
 print(df['category'].value_counts())
 

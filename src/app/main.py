@@ -1,3 +1,6 @@
+'''
+This is the main FastAPI application for the Customer Ticket Resolver Agent.To check how backend works, the user can run this script.
+'''
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from .models import SessionLocal, NewTicket

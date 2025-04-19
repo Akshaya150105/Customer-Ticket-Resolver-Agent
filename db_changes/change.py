@@ -1,3 +1,4 @@
+
 import sqlite3
 db_path = "C://Users//kalya//OneDrive//Desktop//Crayon Data//src//app//ticket_data.db"
 conn = sqlite3.connect(db_path)

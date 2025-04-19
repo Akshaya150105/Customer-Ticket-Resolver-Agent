@@ -1,3 +1,7 @@
+'''
+This defines the schemas , including the request and response models.
+It uses Pydantic for data validation and serialization.
+'''
 from pydantic import BaseModel
 from typing import Optional, List
 

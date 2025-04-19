@@ -1,3 +1,6 @@
+''''
+This is used to create the database.
+'''
 from datetime import datetime
 from sqlalchemy import create_engine, Column, String, Text,DateTime
 from sqlalchemy.ext.declarative import declarative_base

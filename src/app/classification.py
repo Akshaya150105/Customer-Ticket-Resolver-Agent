@@ -17,7 +17,6 @@ def classify_ticket(issue_description):
 
 def predict_category(issue_description, clf, bert_model):
     """Preprocess and predict category for a single instance."""
-    # Use your preprocess function (assuming it's imported or defined here)
     def preprocess(text):
         text = text.lower()
         text = re.sub(r'[^\w\s]', '', text)

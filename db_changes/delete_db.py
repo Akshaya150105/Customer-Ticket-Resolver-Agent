@@ -1,3 +1,7 @@
+'''
+This script is used to delete the 'new_tickets' table from the SQLite database.In casethe user wants to delete the table, they can run this script.
+'''
+
 from sqlalchemy import create_engine, MetaData, Table
 SQLALCHEMY_DATABASE_URL = "sqlite:///C:/Users/kalya/OneDrive/Desktop/Crayon Data/src/app/ticket_data.db"
 engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False})

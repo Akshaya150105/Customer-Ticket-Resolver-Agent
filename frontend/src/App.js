@@ -3,7 +3,7 @@ import TicketForm from './components/TicketForm';
 import TicketDetails from './components/TicketDetails';
 import AgentActions from './components/AgentActions';
 import SimilarTickets from './components/SimilarTickets';
-import './styles/main.css'; // Import the main CSS file
+import './styles/main.css';
 
 function App() {
   const [ticket, setTicket] = useState(null);

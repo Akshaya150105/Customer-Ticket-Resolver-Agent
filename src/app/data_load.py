@@ -13,7 +13,6 @@ if not os.path.exists(csv_path):
 
 df = pd.read_csv(csv_path)
 
-# Ensure column names match the model (case-sensitive)
 expected_columns = ['ticket_id', 'customer_id', 'date_created', 'category', 'subcategory', 
                    'priority', 'issue_description', 'resolution', 'resolution_time_hours', 
                    'customer_satisfaction', 'agent_id']
@@ -21,7 +20,7 @@ missing_columns = [col for col in expected_columns if col not in df.columns]
 if missing_columns:
     raise ValueError(f"Missing columns in CSV: {missing_columns}")
 
-# Load data into the 'tickets' table
+
 df.to_sql('tickets', engine, if_exists='replace', index=False, dtype={
     'ticket_id': 'TEXT',
     'customer_id': 'TEXT',
