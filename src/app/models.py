@@ -1,4 +1,5 @@
-from sqlalchemy import create_engine, Column, String, Text
+from datetime import datetime
+from sqlalchemy import create_engine, Column, String, Text,DateTime
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
@@ -22,15 +23,22 @@ class Ticket(Base):
     customer_satisfaction = Column(String(10))
     agent_id = Column(String(10))
 
+from sqlalchemy import Column, String, Text, DateTime
+from sqlalchemy.ext.declarative import declarative_base
+
+Base = declarative_base()
+
 class NewTicket(Base):
     __tablename__ = "new_tickets"
     ticket_id = Column(String(10), primary_key=True)
     issue_description = Column(Text)
     category = Column(String(50))
+    confirmed_category = Column(String, nullable=True)
     status = Column(String(20), default="Pending")
     draft_resolution = Column(Text)
     final_resolution = Column(Text)
     resolution_time_hours = Column(String(10))
+    submission_time = Column(DateTime, default=datetime.now)  # Add submission time
 
 # Create tables
 Base.metadata.create_all(bind=engine)
