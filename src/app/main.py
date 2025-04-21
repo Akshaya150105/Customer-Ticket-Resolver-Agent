@@ -4,7 +4,7 @@ This is the main FastAPI application for the Customer Ticket Resolver Agent.To c
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from .models import SessionLocal, NewTicket
-from .schemas import TicketCreate, TicketResponse
+from .schemas import TicketCreate, TicketResponse,ApprovalRequest, CategoryApprovalRequest
 from .classification import classify_ticket
 import uuid
 from fastapi import Depends
@@ -34,10 +34,7 @@ def get_db():
     finally:
         db.close()
 
-# Initialize index on startup
-@app.on_event("startup")
-async def startup_event():
-    initialize_index()
+
 
 @app.post("/submit_ticket", response_model=TicketResponse)
 async def submit_ticket(ticket: TicketCreate, db=Depends(get_db)):
@@ -119,9 +116,6 @@ async def get_similar_tickets_endpoint(ticket_id: str, db=Depends(get_db)):
         logger.error(f"Error fetching similar tickets: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error fetching similar tickets: {str(e)}")
 
-# Updated endpoint to accept final_response in the request body
-class ApprovalRequest(BaseModel):
-    final_response: str
 
 @app.put("/approve_ticket/{ticket_id}")
 async def approve_ticket(ticket_id: str, approval: ApprovalRequest, db=Depends(get_db)):
@@ -154,9 +148,6 @@ async def approve_ticket(ticket_id: str, approval: ApprovalRequest, db=Depends(g
         db.rollback()
         logger.error(f"Error approving ticket: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Error approving ticket: {str(e)}")
-# New endpoint for category approval
-class CategoryApprovalRequest(BaseModel):
-    confirmed_category: str
 
 @app.put("/approve_category/{ticket_id}")
 async def approve_category(ticket_id: str, approval: CategoryApprovalRequest, db=Depends(get_db)):

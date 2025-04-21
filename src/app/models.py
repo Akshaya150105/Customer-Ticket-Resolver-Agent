@@ -26,10 +26,6 @@ class Ticket(Base):
     customer_satisfaction = Column(String(10))
     agent_id = Column(String(10))
 
-from sqlalchemy import Column, String, Text, DateTime
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
 
 class NewTicket(Base):
     __tablename__ = "new_tickets"

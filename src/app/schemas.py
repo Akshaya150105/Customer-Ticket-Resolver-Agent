@@ -43,3 +43,8 @@ class SimilarTicket(BaseModel):
 class SimilarTicketsResponse(BaseModel):
     ticket_id: str
     similar_tickets: List[SimilarTicket]
+
+class ApprovalRequest(BaseModel):
+    final_response: str
+class CategoryApprovalRequest(BaseModel):
+    confirmed_category: str
