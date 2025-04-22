@@ -12,7 +12,7 @@ A robust ticket management system designed to handle customer issues efficiently
 ## Screenshots
 # Home Page
 ![image](https://github.com/user-attachments/assets/981e1ef8-281b-431c-8989-cc082c0a0101)
-# Page with Predicted Category and Darft Message
+# Page with Predicted Category and Draft Message
 ![image](https://github.com/user-attachments/assets/778d36ac-060b-4dd1-8f0c-9b4ae4675f00)
 # Page with Similar tickets
 ![image](https://github.com/user-attachments/assets/d9962af4-11c2-4d0a-b6ac-9285eeebf4e0)
