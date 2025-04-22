@@ -1,33 +1,36 @@
-ticket-resolver/
-├── data/                         # Store datasets and outputs
-│   ├── raw/                      # Raw dataset files
-│   │   └── historical_tickets.csv # Downloaded Hugging Face dataset
-│   ├── processed/                # Preprocessed datasets
-│   │   └── preprocessed_tickets.csv # Cleaned and adapted dataset
-│   ├── db/                       # SQLite databases
-│   │   └── tickets.db            # SQLite database for tickets
-│   └── logs/                     # Log files for auditing
-│       └── preprocessing_log.txt # Audit log for preprocessing
-├── src/                          # Source code for the project
-│   ├── preprocessing/            # Data loading and preprocessing scripts
-│   │   └── preprocess_tickets.py # Script for loading and preprocessing dataset
-│   ├── classification/           # Scripts for ticket classification
-│   │   └── classify_tickets.py   # (Future) Classifier training and prediction
-│   ├── matching/                 # Scripts for similarity matching
-│   │   └── match_tickets.py      # (Future) Find similar tickets
-│   ├── response/                 # Scripts for response generation
-│   │   └── generate_response.py  # (Future) Generate draft responses
-│   └── app/                      # Flask application for ticket input and approval
-│       ├── routes.py             # Flask routes (e.g., /submit_ticket, /review_ticket)
-│       ├── templates/            # HTML templates for Flask UI
-│       │   └── review.html       # Template for agent approval
-│       └── static/               # CSS/JS for Flask UI
-│           └── style.css         # Styling for web interface
-├── tests/                        # Test scripts for validation
-│   ├── test_preprocessing.py     # Tests for preprocessing
-│   └── test_classification.py    # (Future) Tests for classification
-├── config/                       # Configuration files
-│   └── config.yaml              
-├── requirements.txt              # Python dependencies
-├── README.md                     # Project documentation
-└── run.py                        # Entry point to run the project
+# Customer Ticket Resolver
+
+A robust ticket management system designed to handle customer issues efficiently. This project features a FastAPI backend for processing ticket submissions, category classification, and resolution approvals, paired with a React frontend for a dynamic user interface. It supports ticket submission, category confirmation by agents, resolution approval, and similarity-based ticket suggestions.
+
+## Features
+- Submit new customer tickets with issue descriptions.
+- Automatically classify tickets into categories (e.g., Billing, Network).
+- Allow agents to confirm or edit predicted categories.
+- Provide draft resolutions and enable agent approval of final responses.
+- Display similar past tickets based on issue descriptions.
+- Persistent storage using SQLite with session-based state management.
+## Screenshots
+# Home Page
+![image](https://github.com/user-attachments/assets/981e1ef8-281b-431c-8989-cc082c0a0101)
+# Page with Predicted Category and Darft Message
+![image](https://github.com/user-attachments/assets/778d36ac-060b-4dd1-8f0c-9b4ae4675f00)
+# Page with Similar tickets
+![image](https://github.com/user-attachments/assets/d9962af4-11c2-4d0a-b6ac-9285eeebf4e0)
+# Page After Agent Approves
+![image](https://github.com/user-attachments/assets/d1c9afcf-83dd-45f1-a622-faea63aee2ff)
+
+
+## Technologies Used
+- **Backend:** FastAPI, SQLAlchemy, SQLite, Pydantic
+- **Frontend:** React, Axios
+- **Other Tools:** Python, Node.js, npm, Git
+  
+
+## Prerequisites
+- **Python 3.10+** for the backend
+- **Node.js 14+** and **npm** for the frontend
+- Git for version control
+- A code editor (e.g., VS Code) with SQLite extensions.
+
+
+
